@@ -2,12 +2,12 @@ from sys import path_hooks
 from django.urls import path
 from . import views
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('login/', views.login_page, name='login'),
+    path('', views.login_page, name='login'),
     path('adminpage', views.adminPage, name='adminPage'),
     path('staff', views.staff, name='staff'),
     path('chairman', views.chairman, name='chairman'),
