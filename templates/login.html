@@ -1,8 +1,133 @@
+<!--  <p>{{ message }}</p> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>18/07/22</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <style>
+        * {
+    box-sizing: border-box;
+    }
+    body {
+        background-color: rgb(201, 247, 231);
+        font-family: System-ui;
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+        padding: 0px 50px;
+    }
+    .container {
+        display: inline-block;
+        max-width: 100%;
+        background-color: rgba(16, 238, 164,0.4);
+        margin: auto;
+        overflow: hidden;
+        align-items: center;
+        text-align: center;
+        border-radius: 12px;
+    }
+    .left-section {
+        margin: 30px;
+        max-width: 50vw;
+        display: inline-block;
+        padding: 30px 10px;
+        min-width: 50vw;
+    }
+    .login {
+        font-size: 35px;
+        font-style: oblique;
+        color: rgb(248, 53, 53);
+    }
+    img {
+        width:80%;
+        border-radius: 12px;
+    }
+    .right-section {
+        max-width: 50vw;
+        margin: auto;
+    }
+    form {
+        padding: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 15px;
+        position: relative;
+    }
+    #id_username,#id_password,.button {
 
-        <p>{{ message }}</p>
-        <form method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <button type="submit" >Submit</button>
-        </form>
+        width: 90%;
+        display: inline-block;
+        padding: 8px 5px;
+        margin: 0px 40px;
+        border-radius: 5px;
+        border: none;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    input.button {
+        display: block;
+        margin-bottom: 10px;
+        background-color: rgb(16, 238, 164);
+        width: 30%;
+        margin-top: 10px;
+    }
+    input.button:hover{
+        cursor: pointer;
+    }
+    @media (min-width:768px) and (max-width:992px){
+        .container{
+            display: flex;
+        }
+        img {
+            width: 325px;
+        }
+        .right-section {
+            padding-left: 2%;
+            padding-right: 20px;
+        }
+        #id_username,#id_password {
+            width: 80%;
+        }
+        input.button {
+            width: fit-content;
+            padding: 8px 20px;
+        }
+        .fp{
+            text-align: justify;
+        }
+    }
+    @media (min-width:992px) {
+        .container{
+            display: flex;
+        }
+        .right-section {
+            padding-right: 20px;
+        }
+        input.button {
+            width: fit-content;
+            padding: 8px 20px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="" alt="image">
+        </div>
+        <div class="right-section">
+            <h1 class="login">Log in</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="">Username</label>
+                {{form.username}}
+                <label for="">Password</label>
+                {{form.password}}
+                <input class="button" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
 
